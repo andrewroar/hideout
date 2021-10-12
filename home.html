@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NJ Hideout</title>
+    <link rel="stylesheet" href="./css/home.css" />
+    <link
+      rel="icon"
+      href="statics/home-solid.svg"
+      sizes="any"
+      type="image/svg+xml"
+    />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+  </head>
+
+  <body>
+    <div class="nav">
+      <h1>Welcome to NJ Hideout</h1>
+      <a href="mailto:"
+        ><button class="border-button"><b>Book via Email</b></button></a
+      >
+      <a href="https://wa.me/447932970453"
+        ><button class="border-button"><b>Book via Whatapps</b></button></a
+      >
+    </div>
+    <div class="main">
+      <div class="divider"></div>
+      <h2>Wish to enjoy a trip to Carribbean on a budget?</h2>
+      <h2>Why not book your holiday with NJ's Carribbean Hideout!</h2>
+      <div class="boxshadow house-pic"></div>
+
+      <div class="divider"></div>
+      <h2>House Tour</h2>
+
+      <video class="video" controls>
+        <source src="statics/tour.mp4" type="video/mp4" />
+
+        Your browser does not support the video tag.
+      </video>
+      <div class="divider"></div>
+
+      <h2>Where Are We</h2>
+      <div id="mapid"></div>
+      <div class="divider"></div>
+      <div class="flexbox">
+        <div class="house-pic"></div>
+        <div class="house-pic"></div>
+        <div class="house-pic"></div>
+      </div>
+    </div>
+
+    <div class="footer"></div>
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+
+    <script>
+      var mymap = L.map("mapid").setView(
+        [16.720682517760974, -62.230148593970604],
+        13
+      );
+
+      L.tileLayer(
+        "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYW5kcmV3cm9hciIsImEiOiJja3VoZ2J6bmQwNzNsMnBxdHo4MjhlMWdxIn0.9mgjuwpVlLrOi8a1-5bgMA",
+        {
+          attribution:
+            'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+          maxZoom: 18,
+          id: "mapbox/streets-v11",
+          tileSize: 512,
+          zoomOffset: -1,
+          accessToken:
+            "pk.eyJ1IjoiYW5kcmV3cm9hciIsImEiOiJja3VoZ2J6bmQwNzNsMnBxdHo4MjhlMWdxIn0.9mgjuwpVlLrOi8a1-5bgMA",
+        }
+      ).addTo(mymap);
+
+      L.marker([16.720682517760974, -62.230148593970604]).addTo(mymap);
+    </script>
+  </body>
+</html>
